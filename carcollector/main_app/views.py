@@ -11,18 +11,18 @@ def about(request):
   return render(request, 'about.html')
 
 # Add new view
-def cats_index(request):
-  return render(request, 'cats/index.html', { 'cats': cats })
+def cars_index(request):
+  return render(request, 'cars/index.html', { 'cars': cars })
 
-class Cat:  # Note that parens are optional if not inheriting from another class
+class car:  # Note that parens are optional if not inheriting from another class
   def __init__(self, name, breed, description, age):
     self.name = name
     self.breed = breed
     self.description = description
     self.age = age
 
-cats = [
-  Cat('Lolo', 'tabby', 'foul little demon', 3),
-  Cat('Sachi', 'tortoise shell', 'diluted tortoise shell', 0),
-  Cat('Raven', 'black tripod', '3 legged cat', 4)
+cars = [
+  car('Lolo', 'tabby', 'foul little demon', 3),
+  car('Sachi', 'tortoise shell', 'diluted tortoise shell', 0),
+  car('Raven', 'black tripod', '3 legged car', 4)
 ]
