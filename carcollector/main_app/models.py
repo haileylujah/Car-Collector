@@ -1,3 +1,13 @@
 from django.db import models
 
 # Create your models here.
+class Car(models.Model):
+    # STATUS = (
+    #     ('O', 'Owned'),
+    #     ('D', 'Dreaming'),
+    # )
+    year = models.IntegerField()
+    make = models.CharField(max_length=100)
+    model = models.CharField(max_length=100)
+    color = models.CharField(max_length=100)
+    # status = models.CharField(max_length=1, choices=STATUS)
