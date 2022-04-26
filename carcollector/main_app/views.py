@@ -1,8 +1,26 @@
 from django.shortcuts import render
 
+#import the CreateView class
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 # Create your views here.
 from django.http import HttpResponse
 from .models import Car
+
+
+class CarCreate(CreateView):
+  model = Car
+  fields = '__all__'
+  # success_url = '/cars/'
+
+class CarUpdate(UpdateView):
+  model = Car
+  fields = '__all__'
+
+class CarDelete(DeleteView):
+  model = Car
+  success_url = '/cars/'
+
 
 # Define the home view
 def home(request):
