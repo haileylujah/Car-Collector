@@ -3,18 +3,24 @@ from django.urls import reverse
 
 # Create your models here.
 
-# STATUS_TYPE = (
-#     ('Owned', 'Owned'),
-#     ('Dreaming', 'Dreaming'),
-#     ('Dislike it but it cool', 'Dislike it but it cool')
-# )
+class Passenger(models.Model):
+    name = models.CharField(max_length=27)
+    gender = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('passengers_detail', kwargs={'pk': self.id})
+
+
 class Car(models.Model):
     year = models.IntegerField()
     make = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
     color = models.CharField(max_length=100)
-    # status = models.CharField(max_length=100, choices=STATUS_TYPE, blank=True)
-
+   
+ 
     def __str__(self):
         return f"The car {self.make} has id of {self.id}"
         
@@ -25,7 +31,7 @@ class Car(models.Model):
 TYPES = (
     ('O', 'Oil Change'),
     ('T', 'Tire Rotation'),
-    ('C', 'Change Brake Fluid')
+    ('C', 'Change Brake Fluid'),
 )
 
 class Service(models.Model):
