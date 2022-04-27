@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+
 {% block content %}
 
 <h1>My Collection</h1>
 
 {% for car in cars %}
-  <a href="/cars/{{ car.id }}">
+  <a href="{% url 'detail' car.id %}">
     <div class="card">
       <div class="card-content">
         <span class="card-title">{{ car.make }} {{ car.model }}</span>
@@ -12,7 +13,7 @@
         <p>Make: {{ car.make }}</p>
         <p>Model: {{ car.model }}</p>
         <p>Color: {{ car.color }}</p>
-        <p>Status: {{ car.status }}</p>
+        <!-- <p>Status: {{ car.status }}</p> -->
         
       </div>
     </div>
