@@ -25,7 +25,7 @@ class CarDelete(DeleteView):
 
 # Define the home view
 def home(request):
-  return HttpResponse('<h1>Hello /ᐠ｡‸｡ᐟ\ﾉ</h1>')
+  return HttpResponse('<h1>Hello waaaaaaa /ᐠ｡‸｡ᐟ\ﾉ</h1>')
 
 def about(request):
   return render(request, 'about.html')
@@ -47,5 +47,5 @@ def add_service(request, car_id):
     new_service = form.save(commit=False)
     new_service.car_id = car_id
     new_service.save()
-    
+
   return redirect('detail', car_id=car_id)
