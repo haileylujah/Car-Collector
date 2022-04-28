@@ -19,6 +19,7 @@ class Car(models.Model):
     make = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
     color = models.CharField(max_length=100)
+    passengers = models.ManyToManyField(Passenger)
    
  
     def __str__(self):

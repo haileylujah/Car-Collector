@@ -26,7 +26,7 @@ class CarDelete(DeleteView):
 
 # Define the home view
 def home(request):
-  return render(request, 'about.html')
+  return render(request, 'home.html')
 
 def about(request):
   return render(request, 'about.html')
@@ -38,13 +38,13 @@ def cars_index(request):
 
 def cars_detail(request, car_id):
   car = Car.objects.get(id=car_id)
-  # passengers_car_doesnt_has = Passenger.objects.exclude(id__in = car.passengers.all().values_list('id'))
+  passengers_car_doesnt_have = Passenger.objects.exclude(id__in = car.passengers.all().values_list('id'))
   service_form = ServiceForm()
 
   return render(request, 'cars/detail.html', {
     'car': car, 
     'service_form': service_form,
-    # 'passengers': passengers_car_doesnt_has
+    'passengers': passengers_car_doesnt_have
     })
 
 def add_service(request, car_id):

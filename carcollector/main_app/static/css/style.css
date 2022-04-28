@@ -13,3 +13,6 @@ body {
     text-align: right;
   }
 
+.home {
+  display: flex;
+}
